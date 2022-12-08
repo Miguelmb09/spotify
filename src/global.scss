@@ -24,3 +24,30 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+// swiper scss
+@import 'swiper/scss';
+@import 'swiper/scss/navigation';
+@import 'swiper/scss/pagination';
+
+
+
+  
+  @font-face {
+    font-family: 'Spotify';
+    font-style: normal;
+    font-weight: normal;
+    src: url('/assets/fonts/spotify-regular.ttf');
+  }
+  
+  @font-face {
+    font-family: 'Spotify';
+    font-weight: bold;
+    src: url('/assets/fonts/spotify-bold.ttf');
+  }
+  
+  @font-face {
+    font-family: 'Spotify';
+    font-weight: lighter;
+    src: url('/assets/fonts/spotify-light.ttf');
+  }

@@ -1,0 +1,94 @@
+<app-header closeModal="true" title="Now playing"></app-header>
+
+<ion-content class="ion-text-center">
+  <!-- <ion-list>
+  <ion-item button *ngFor="let track of playlist" (click)="start(track)">
+    <ion-label [color]="track == activeTrack ? 'success' : 'dark' "> 
+      {{ track.name }} 
+    </ion-label>
+  </ion-item>
+</ion-list> -->
+
+  <div>
+    <ion-avatar>
+      <img [src]="track.img" />
+    </ion-avatar>
+
+  </div>
+
+
+  <ion-footer *ngIf="activeTrack">
+    <ion-toolbar>
+      <ion-row>
+
+   
+       <ion-col size="12">
+        <div> <strong>{{activeTrack.name}}</strong></div>  
+        <div>{{track.artistName}}</div>   
+     
+     <ion-button  fill="clear">
+       <ion-icon slot="end" color="medium" name="heart-outline"></ion-icon>
+     </ion-button>
+     
+       </ion-col>
+      
+            
+
+       
+
+        <ion-col size="12">
+          <ion-range #range [(ngModel)]="progress" max="100" color="medium"
+            (touchend)="seek()" (mouseup)="seek()">
+          </ion-range>
+
+          {{getTrackSeek()}} / {{ getTrackMinutes()}}
+        </ion-col>
+        <ion-col size="12" class="ion-text-center">
+
+          <ion-button fill="clear">
+            <ion-icon color="medium" name="repeat-outline"></ion-icon>
+          </ion-button>
+
+          <ion-button (click)="prev()" fill="clear">
+            <ion-icon color="dark" name="play-skip-back"></ion-icon>
+          </ion-button>
+
+          <ion-button style="height: 80px;" (click)="togglePlayer(false)"
+            *ngIf="!isPlaying" fill="clear">
+            <ion-icon class="player" name="play-circle"></ion-icon>
+          </ion-button>
+
+          <ion-button style="height: 80px;" (click)="togglePlayer(true)"
+            *ngIf="isPlaying" fill="clear">
+            <ion-icon class="player" name="pause-circle"></ion-icon>
+          </ion-button>
+
+          <ion-button (click)="next()" fill="clear">
+            <ion-icon color="dark" name="play-skip-forward"></ion-icon>
+          </ion-button>
+
+          <ion-button fill="clear">
+            <ion-icon color="medium" slot="icon-only" name="shuffle-outline"></ion-icon>
+          </ion-button>
+          <ion-col size="12">
+           
+          </ion-col>
+          
+          
+         
+        </ion-col>
+        <ion-col size="11.5">
+          <div> <ion-button fill="clear">
+            <ion-icon color="dark" name="chevron-up-outline"></ion-icon>
+          </ion-button>
+          <p>Lyrics</p></div>
+        </ion-col>
+
+
+
+      </ion-row>
+    </ion-toolbar>
+  </ion-footer>
+
+
+</ion-content>

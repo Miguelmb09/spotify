@@ -1,0 +1,15 @@
+<ion-list>
+  
+
+<ion-item (click)="onClick(i)" *ngFor="let i of items">
+  <ion-label>
+    <strong> {{i.name}} </strong>
+    <div> {{i.artistName}} </div>
+  </ion-label>
+  <ion-avatar slot="start">
+    <img [src]="i.img" />
+  </ion-avatar>
+  
+</ion-item>
+
+</ion-list>

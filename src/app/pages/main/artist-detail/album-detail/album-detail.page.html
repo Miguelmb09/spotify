@@ -1,0 +1,50 @@
+<!-- <app-header  backButton="/main/favorites" title="{{album().name}}"> -->
+    <ion-header class="ion-text-center">
+        <ion-toolbar [style.--background]="album().backgroundColor">
+            <ion-buttons slot="start">
+                <ion-back-button text="" color="light" defaultHref="/main/favorites"></ion-back-button>
+              </ion-buttons>
+              <ion-title color="light" >{{ album().name }}</ion-title>
+            </ion-toolbar>
+    </ion-header>
+   
+<!-- </app-header> -->
+
+<ion-content scrollEvents="true"  [fullscreen]="true" [appImageFade]="cover" *ngIf="album()" [style.--custombg]="album().backgroundColor">
+    
+<div class="ion-text-center image-box" #cover>
+    <img src="{{album().img}}" alt="" *ngIf="album()">
+</div> 
+
+<div class="main">
+    <ion-row>
+        <ion-col size="12" class="album-info">
+          <p>{{ artist().name }}</p>
+          <span>Album {{ album().name }} · {{ album().released }}</span>
+        </ion-col>
+        <ion-col size="8" class="ion-text-left ion-no-padding">
+          <ion-button fill="clear" class="ion-no-margin">
+            <ion-icon name="heart-outline" color="primary" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear">
+            <ion-icon name="arrow-down-circle-outline" color="primary" slot="icon-only"></ion-icon>
+          </ion-button>
+          <ion-button fill="clear">
+            <ion-icon name="ellipsis-horizontal" color="primary" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="4" class="ion-text-right ion-no-padding">
+          <ion-button fill="clear">
+            <ion-icon name="play-circle-outline" size="large" color="primary" slot="icon-only"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+
+
+
+
+
+<app-spotify-item  (clickEvent)="openPlayer($event)" [items]="formatedTracks()"></app-spotify-item>
+
+</div>
+</ion-content>

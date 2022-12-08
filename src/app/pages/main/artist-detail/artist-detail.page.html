@@ -1,0 +1,32 @@
+<ion-content class="ion-text-center">
+  <app-header transparent="true" backButton="/main/favorites" title="{{artist().name}}"></app-header>
+
+  <div style="position: relative;bottom: 60px;">
+<ion-avatar>
+    <img src="{{artist().img}}" />
+</ion-avatar>
+  
+
+<ion-segment [(ngModel)]="segment">
+  <ion-segment-button value="albums">
+    <ion-label>Albums</ion-label>
+  </ion-segment-button>
+  <ion-segment-button value="singles">
+    <ion-label>Singles</ion-label>
+  </ion-segment-button>
+</ion-segment>
+
+
+    <h2><strong>{{artist().name}}</strong></h2>
+    <h6>{{artist().albums.length}} Albums, {{trackLength()}} track</h6>
+    
+    
+    <app-spotify-item (clickEvent)="albumDetail($event)" *ngIf="segment == 'albums'" [items]="getFormatedTracks()"></app-spotify-item>
+    
+ 
+
+</div>
+
+
+
+</ion-content>

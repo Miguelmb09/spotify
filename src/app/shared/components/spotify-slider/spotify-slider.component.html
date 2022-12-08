@@ -1,0 +1,16 @@
+<swiper [config]="config">
+  <ng-template class="ion-text-center" *ngFor="let s of slides"
+    swiperSlide>
+
+    <div (click)="onClick(s)">
+      <ion-avatar [ngClass]="{'square': !round}" class="artist-img">
+        <img [src]="s.img" />
+      </ion-avatar>
+
+      <div>{{s.name}}</div>
+
+    </div>
+
+
+  </ng-template>
+</swiper>

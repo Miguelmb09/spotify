@@ -1,0 +1,31 @@
+
+
+
+<ion-content class="ion-text-center">
+
+    <app-header title="Favorites"></app-header>
+
+<h2> <strong>Artists</strong> </h2>
+    <app-spotify-slider (clickEvent)="artistDetail($event)" round="true" [slides]="favArtists"></app-spotify-slider>
+    
+    <h2> <strong>Favorites Albums</strong> </h2>
+    <app-spotify-slider   [slides]="favAlbums"></app-spotify-slider>
+
+<div>
+    <h2><strong>Songs</strong></h2>
+    <ion-item routerLink="/main/favorites/artist-detail" *ngFor="let a of favSongs">
+        <ion-label>
+        {{a.name}}
+        <p>{{ a.artist }}</p>
+       
+        </ion-label>
+        <ion-avatar slot="start">
+            <img [src]="a.img" />
+        </ion-avatar>
+    </ion-item>
+    
+    
+
+</div>
+
+</ion-content>
